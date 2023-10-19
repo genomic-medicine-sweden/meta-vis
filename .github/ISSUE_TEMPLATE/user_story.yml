@@ -2,7 +2,7 @@ name: User Story
 description: A user story
 title: "[User Story] <title>"
 labels: ["User-Story"]
-projects: ["enomic-medicine-sweden/5"]
+projects: ["Genomic-medicine-sweden/5"]
 body:
 - type: textarea
   attributes:
