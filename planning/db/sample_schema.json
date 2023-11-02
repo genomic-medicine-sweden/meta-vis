@@ -1,0 +1,63 @@
+{
+  "_id": "EXAMPLETEXT",
+
+  "patient": {
+    "extended_patient_metadata": "ObjectID('EXAMPLEID')"
+  },
+  "sample": {
+      "sample_id": "AA11",
+      "sample_source": "cerebrospinal_fluid",
+      "biopsy_id": "BB22"
+  },
+  "library_preparation": {
+    "library_name": "Nextera xt",
+    "batch_id": "ABC123",
+    "sample_type": "RNA"
+  },
+  "sequencing": {
+    "platform": "Illumina NovaSeq X Plus",
+    "flowcell_id": "AUYASCGC",
+    "date": "2023-01-01",
+    "barcode_index": "ATCG",
+    "num_reads": 100000
+  },
+  "taxprofiler": {
+    "fastqc": {
+      "mean_phred_score_forward": 30,
+      "mean_phred_score_reverse": 29,
+      "total_num_reads": 1000000
+    },
+    "fastp": {
+      "num_trimmed_reads": 5000
+    },
+    "kraken2": {
+      "num_otus": 230
+    },
+    "bracken": {
+      "num_otus": 100
+    },
+    "bowtie2": {
+      "num_human_reads": 500
+    },
+    "pipeline_info": {
+      "software_used": {
+        "BBMAP_BBDUK": {
+          "bbmap": "39.01"
+        },
+        "BOWTIE2_ALIGN": {
+          "bowtie2": "2.4.4",
+          "pigz": "2.6",
+          "samtools": "1.16.1"
+        }
+      },
+      "pipeline_configuration": {
+        "revision": "1.1.0",
+        "runname": "peaceful_brenner",
+        "containerengine": "singularity",
+        "username": "user.usersson",
+        "pipeline_repository_git_url": "https://github.com/nf-core/taxprofiler",
+        "pipeline_repository_git_commit": "d1f82f3ab6d26a485d72300825edc28c7fdef791"
+      }
+    }
+  }
+}
