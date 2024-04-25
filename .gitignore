@@ -1,4 +1,5 @@
 
 .vscode/settings.json
 .secrets/
-tests/backend/test.py
+test.py
+__pycache__/
