@@ -1,9 +1,7 @@
 
-from parse import parse
 import csv
 from pandas import (
     DataFrame, 
-    Series,
     concat
 )
 
@@ -21,8 +19,7 @@ def parse_kraken_output(path : str) -> DataFrame:
                 "NCBI taxonomic ID number" : [row[4]],
                 "Indented scientific name" : [row[5]]
             }
-            
             row_df = DataFrame.from_dict(row_dict)
-            
             df = concat([df, row_df])
+
     return df.reset_index().drop("index", axis=1)
