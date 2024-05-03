@@ -5,7 +5,7 @@ from pandas import (
     concat
 )
 
-def parse_kraken_output(path : str) -> DataFrame:
+def parse_kraken_2_report(path : str) -> DataFrame:
     with open(path) as file:
         reader = csv.reader(file, delimiter="\t", quotechar='"')
         df = DataFrame()
