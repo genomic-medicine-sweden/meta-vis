@@ -35,7 +35,7 @@ def get_sequencing() -> dict:
         }
     }
 
-def get_taxprofiler_metadata():
+def get_taxprofiler_metadata() -> dict:
     taxprofiler = {
         "taxprofiler" : {
             "num_otus" : int()
@@ -49,7 +49,6 @@ def get_metadata() -> dict:
     library_preparation = get_library_preparation()
     sequencing = get_sequencing()
     taxprofiler = get_taxprofiler_metadata()
-    
     return patient | sample | library_preparation | sequencing | taxprofiler
 
 def get_taxprofiler_data(taxprofilers : dict[str, dict]) -> dict:
@@ -58,10 +57,10 @@ def get_taxprofiler_data(taxprofilers : dict[str, dict]) -> dict:
         out_dict[taxprofile_name] = taxprofile
     return out_dict
 
-def get_data(taxprofilers : dict[str, dict]):
+def get_data(taxprofilers : dict[str, dict]) -> dict:
     taxprofiler = get_taxprofiler_data(taxprofilers)
     return taxprofiler
 
-def build_entry(taxprofilers : dict[str, dict]):
+def build_entry(taxprofilers : dict[str, dict]) -> dict[str, dict]:
     combined = {"metadata" : get_metadata()} | {"data" : get_data(taxprofilers)}
     return combined

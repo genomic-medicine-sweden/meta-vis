@@ -4,7 +4,6 @@ from pandas import (
     DataFrame, 
     concat
 )
-from backend.mongo_db_connection import DataBaseHandler
 
 def parse_kraken_2_report(path : str) -> DataFrame:
     with open(path) as file:
@@ -24,7 +23,3 @@ def parse_kraken_2_report(path : str) -> DataFrame:
             df = concat([df, row_df])
 
     return df.reset_index().drop("index", axis=1)
-    
-def insert_one_kraken_2_report(report_path : str, db_handler : DataBaseHandler) -> None:
-    df = parse_kraken_2_report(report_path)
-    db_handler.col.insert_one(df.to_dict("list"))

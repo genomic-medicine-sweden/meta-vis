@@ -16,3 +16,6 @@ class DataBaseHandler():
             username = mongo_client_creds["username"],
             password = mongo_client_creds["password"]
         )
+    
+    def insert_entry(self, entry : dict) -> None:
+        self.col.insert_one(entry)
