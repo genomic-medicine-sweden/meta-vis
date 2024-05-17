@@ -7,7 +7,7 @@ from pandas import (
 
 def parse_kraken_2_report(path : str) -> DataFrame:
     with open(path) as file:
-        reader = csv_reader(file, delimiter="\t", quotechar='"')
+        reader = csv_reader(file, delimiter="\t", quotechar="\"")
         df = DataFrame()
         for row in reader:
             row[0] = row[0].strip()
