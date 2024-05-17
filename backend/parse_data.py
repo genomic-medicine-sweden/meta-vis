@@ -6,6 +6,14 @@ from pandas import (
 )
 
 def parse_kraken_2_report(path : str) -> DataFrame:
+    """
+    Parse a Kraken 2 TSV report into a Pandas DataFrame
+
+    :param path: File path to Kraken 2 report
+    :type path: str
+    :return: The Kraken2 report as a DataFrame
+    :rtype: DataFrame
+    """
     with open(path) as file:
         reader = csv_reader(file, delimiter="\t", quotechar="\"")
         df = DataFrame()

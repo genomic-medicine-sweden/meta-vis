@@ -62,5 +62,14 @@ def get_data(taxprofilers : dict[str, dict]) -> dict:
     return taxprofiler
 
 def build_entry(taxprofilers : dict[str, dict]) -> dict[str, dict]:
+    """
+    Create a MongoDB entry containing data and metadata from different taxprofilers, among others
+
+    :param taxprofilers: The taxprofilers as a dictionary, where the keys are 
+    the name of the taxprofiler and the inner dictionary contains the metadata
+    :type taxprofilers: dict[str, dict]
+    :return: An entry suitable for MongoDB
+    :rtype: dict[str, dict]
+    """
     combined = {"metadata" : get_metadata()} | {"data" : get_data(taxprofilers)}
     return combined
