@@ -1,5 +1,7 @@
 
 from pymongo import MongoClient
+from pymongo.cursor import Cursor
+from bson import ObjectId
 from dotenv import dotenv_values
 from typing import Any
 
@@ -19,3 +21,9 @@ class DataBaseHandler():
     
     def insert_entry(self, entry : dict) -> None:
         self.col.insert_one(entry)
+
+    def retrieve_entries_by_filter(self, filters : dict) -> Cursor[Any]:
+        return self.col.find(filters)
+    
+    def retrieve_entries_by_id(self, id : str) -> Cursor[Any]:
+        return self.col.find({"_id" : ObjectId(id)})
