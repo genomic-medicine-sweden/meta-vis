@@ -68,4 +68,4 @@ class DataBaseHandler():
         :return: A Cursor object containing the matching entry
         :rtype: Cursor[Any]
         """
-        return self.col.find({"_id" : ObjectId(id)})
+        return self.col.find({"_id" : id})
