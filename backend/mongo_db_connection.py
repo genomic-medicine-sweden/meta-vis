@@ -1,7 +1,6 @@
 
 from pymongo import MongoClient
 from pymongo.cursor import Cursor
-from bson import ObjectId
 from dotenv import dotenv_values
 from typing import Any
 
