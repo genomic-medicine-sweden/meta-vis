@@ -1,5 +1,5 @@
 
-from datetime import date
+from datetime import datetime
 
 def get_patient() -> dict:
     return {
@@ -29,7 +29,7 @@ def get_sequencing() -> dict:
         "sequencing" : {
             "platform": "",
             "flowcell_id": "",
-            "date": date(2024, 1, 1),
+            "date": datetime(2024, 1, 1),
             "barcode_index": "",
             "num_reads": int()
         }
