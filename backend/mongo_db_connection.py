@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from pymongo.cursor import Cursor
 from dotenv import dotenv_values
 from typing import Any
+from pathlib import Path
 
 class DataBaseHandler():
     def __init__(self, db_name : str, collection_name : str, db_credentials_path : str) -> None:
@@ -16,9 +17,12 @@ class DataBaseHandler():
         :param db_credentials_path: A file path to your credentials .env file
         :type db_credentials_path: str
         """
-        self.client = self.__create_mongo_db_connection(db_credentials_path)    
-        self.db = self.client.get_database(db_name)
-        self.col = self.db.get_collection(collection_name)
+        if Path(db_credentials_path).is_file():
+            self.client = self.__create_mongo_db_connection(db_credentials_path)    
+            self.db = self.client.get_database(db_name)
+            self.col = self.db.get_collection(collection_name)
+        else:
+            raise RuntimeError(db_credentials_path + " does not exist")
 
     def __create_mongo_db_connection(self, env_path : str) -> MongoClient[Any]:
         """
