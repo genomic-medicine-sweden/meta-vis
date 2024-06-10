@@ -7,9 +7,6 @@ from fastapi.testclient import TestClient
 class RetrieveEntriesByFilter(BaseModel):
     filters : dict
 
-class RetrieveEntryById(BaseModel):
-    id : str
-
 class InsertEntries(BaseModel):
     entry : dict
 
@@ -23,9 +20,9 @@ def retrieve_entries_by_filter(data_base_request : RetrieveEntriesByFilter) -> l
     entries = db_h.retrieve_entries_by_filter(data_base_request.filters)
     return list(entries)
 
-@app.post("/retrieve_entry_by_id/")
-def retrieve_entry_by_id(data_base_request : RetrieveEntryById) -> list[dict]:
-    entry = db_h.retrieve_entry_by_id(data_base_request.id)
+@app.get("/retrieve_entry_by_id/{id}")
+def retrieve_entry_by_id(id : str) -> list[dict]:
+    entry = db_h.retrieve_entry_by_id(id)
     return list(entry)
 
 @app.post("/insert_entry/")
