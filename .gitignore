@@ -1,5 +1,5 @@
 
-.vscode/settings.json
+.vscode/
 .secrets/
 test.py
 __pycache__/
