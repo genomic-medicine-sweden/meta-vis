@@ -1,0 +1,6 @@
+
+.vscode/
+.secrets/
+test.py
+__pycache__/
+*.csv
