@@ -6,33 +6,24 @@ const { Header, Content, Footer } = Layout;
 
 const appMenuItems = () => [
     {
-      key: '/',
-      label: <Link to="/">Home</Link>,
+        key: '/',
+        label: <Link to="/">Home</Link>,
     },
     {
-      key: '/about',
-      label: <Link to="/about">About</Link>,
+        key: '/about',
+        label: <Link to="/about">About</Link>,
     }
-  ];
+];
 
-  
-  export const AppLayout = () => {
-      const menuItems = appMenuItems();
-      const location = useLocation();
+export const AppLayout = () => {
+    const menuItems = appMenuItems();
+    const location = useLocation();
+
     return (
         <Layout>
-            <Header
-                style={{
-                    position: 'sticky',
-                    top: 0,
-                    zIndex: 1,
-                    width: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                }}
-            >
+            <Header className="header">
                 <div className="logo">
-                        <img src="/meta-vis-logo.svg" alt="logo"/>            
+                        <img src="/meta-vis-logo.svg" alt="logo" />
                 </div>
                 <Menu
                     theme="dark"
@@ -42,12 +33,12 @@ const appMenuItems = () => [
                     defaultSelectedKeys={[location.pathname]}
                 />
             </Header>
-            <Content style={{ padding: '0 48px' }}>
-                <div className='content'>
+            <Content className="content">
+                <div>
                     <Outlet /> {/* This is where your routed components will be rendered */}
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
+            <Footer className="footer">
                 Meta Vis {new Date().getFullYear()}
             </Footer>
         </Layout>
