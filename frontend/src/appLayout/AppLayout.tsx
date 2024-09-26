@@ -7,11 +7,15 @@ const { Header, Content, Footer } = Layout;
 const appMenuItems = () => [
     {
         key: '/',
-        label: <Link to="/">Home</Link>,
+        label: <Link to="/">Quality Control</Link>,
     },
     {
-        key: '/about',
-        label: <Link to="/about">About</Link>,
+        key: '/classification-results',
+        label: <Link to="/classification-results">Classification Results</Link>,
+    },
+    {
+        key: '/metadata',
+        label: <Link to="/metadata">Metadata</Link>,
     }
 ];
 
@@ -23,7 +27,9 @@ export const AppLayout = () => {
         <Layout>
             <Header className="header">
                 <div className="logo">
+                <Link to="/">
                         <img src="/meta-vis-logo.svg" alt="logo" />
+                    </Link>
                 </div>
                 <Menu
                     theme="dark"
