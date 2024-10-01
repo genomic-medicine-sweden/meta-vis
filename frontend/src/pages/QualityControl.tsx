@@ -1,10 +1,34 @@
-import { Button, message, Table } from "antd"
+import { useEffect, useState } from "react";
+import { Button, message, notification, Table } from "antd"
 import { DownloadOutlined } from '@ant-design/icons'; 
+import { QualityControlData } from "../interfaces";
+import { getQualityControl } from "../api";
 
 
-export const QualityControl = () => {
+export const QualityControl: React.FC = () => {
+  const [qualityControlData, setQualityControlData] = useState<QualityControlData[]>([]);
 
-  const data = [
+  useEffect(() => {
+    getQualityControl()
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setQualityControlData(data);
+        } else {
+          notification.error({
+            message: "Data Error",
+            description: "Invalid data format from API",
+          });
+        }
+      })
+      .catch(() => {
+        notification.error({
+          message: "Fetch Error",
+          description: "Failed to fetch quality control data",
+        });
+      });
+  }, []);
+
+  const mockData: QualityControlData[] = [
     {
       key: '1',
       totalReads: 180000,
@@ -144,6 +168,10 @@ export const QualityControl = () => {
 
 
   return (
-    <Table dataSource={data} columns={columns} bordered/>
+    <Table<QualityControlData>
+      dataSource={qualityControlData.length ? qualityControlData:  mockData}
+      columns={columns}
+      bordered
+    />
   )
 }
