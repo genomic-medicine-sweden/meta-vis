@@ -7,7 +7,7 @@ import { getQualityControl } from "../api";
 
 export const QualityControl: React.FC = () => {
   const [qualityControlData, setQualityControlData] = useState<QualityControlData[]>([]);
-
+  
   useEffect(() => {
     getQualityControl()
       .then((data) => {
