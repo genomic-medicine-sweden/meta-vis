@@ -72,3 +72,16 @@ class DataBaseHandler():
         :rtype: Cursor[Any]
         """
         return self.col.find({"_id" : id})
+    
+    def retrieve_entries(self, nb_of_pages : int, nb_of_entries_per_page : int) -> Cursor[Any]:
+        """
+        Retrieve number of entries equal to `nb_of_pages * nb_of_entries_per_page`
+
+        :param nb_of_pages: Number of pages
+        :type nb_of_pages: int
+        :param nb_of_entries_per_page: Number of entries per page
+        :type nb_of_entries_per_page: int
+        :return: A Cursor object containing the `nb_of_entries * nb_of_entries_per_page` entries
+        :rtype: Cursor[Any]
+        """
+        return self.col.find().limit(nb_of_pages * nb_of_entries_per_page)
