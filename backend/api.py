@@ -33,12 +33,12 @@ def retrieve_entry_by_id(id : str) -> list[dict]:
     entry = db_h.retrieve_entry_by_id(id)
     return list(entry)
 
-@app.get("/retrieve_entries/{nb_of_pages}/{nb_of_entries_per_page}")
-def retrieve_entries(nb_of_pages : int, nb_of_entries_per_page : int) -> list[dict]:
+@app.get("/quality_control/{page_number}/{nb_of_entries_per_page}")
+def retrieve_entries(page_number : int, nb_of_entries_per_page : int) -> list[dict]:
     """
     Retrieve the first `nb_of_pages * nb_of_entries_per_page` entries from the database
     """
-    entries = db_h.retrieve_entries(nb_of_pages, nb_of_entries_per_page)
+    entries = db_h.retrieve_entries(page_number, nb_of_entries_per_page)
     return list(entries)
 
 @app.post("/insert_entry/")
