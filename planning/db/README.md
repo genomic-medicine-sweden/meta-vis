@@ -1,5 +1,7 @@
 # README get json from taxprofiler results
 
+> At the moment only takes Samtools stats and Kraken results
+
 ### Run script:   
 ```
 python taxprofiler_parser.py --samtools_dir [DIR/SAMTOOLS_STATS] --kraken_dir [DIR/KRAKEN_RESULTS] --output [OUTPUTNAME]
