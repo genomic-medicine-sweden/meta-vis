@@ -20,7 +20,7 @@ export const KronaPlot = ({ data }: { data: KronaPlotData }) => {
           branchvalues: "total",
         },
       ]}
-      layout={{ title: "Krona Visualization", width: 0.9 * window.innerWidth, height: 800 }}
+      layout={{ title: "Krona Visualization", width: 0.9 * window.innerWidth, height: 0.9 * window.innerHeight }}
     />
   );
 };
