@@ -1,18 +1,16 @@
-import KronaPlot from "../components/KronaPlot"
-import { kronaData } from "../mock/ClassificationResults";
+import { Card, Flex } from "antd";
+import { KronaPlot } from "../components/KronaPlot"
+import { ReadsChart } from "../components/ReadsChart";
+import { kronaData, readsChartData } from "../mock/ClassificationResults";
 
 export const ClassificationResults = () => {
 
   return (
-    <>
-    <>
-   <h2>Visualization of classification results</h2> 
-   <li>Individual Krona plots for each classifier.</li>
-    <li>Visualization of the number of reads per hit from different classifiers based on Taxpasta outputs.</li>
-    </>
-    <>
+    <Card>
+    <Flex vertical align="center">
     <KronaPlot data={kronaData} />
-    </>
-    </>
+    <ReadsChart data={readsChartData} />
+    </Flex>
+    </Card>
   )
 }

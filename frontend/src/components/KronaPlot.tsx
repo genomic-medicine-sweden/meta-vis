@@ -6,7 +6,7 @@ interface KronaPlotData {
   values: number[];
 }
 
-const KronaPlot = ({ data }: { data: KronaPlotData }) => {
+export const KronaPlot = ({ data }: { data: KronaPlotData }) => {
   
    
   return (
@@ -20,9 +20,7 @@ const KronaPlot = ({ data }: { data: KronaPlotData }) => {
           branchvalues: "total",
         },
       ]}
-      layout={{ title: "Krona Visualization", width: 0.8 * window.innerWidth, height: 800 }}
+      layout={{ title: "Krona Visualization", width: 0.9 * window.innerWidth, height: 800 }}
     />
   );
 };
-
-export default KronaPlot;

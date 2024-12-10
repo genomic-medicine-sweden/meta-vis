@@ -29,17 +29,29 @@ export const kronaData = {
   
   // Data for Reads Per Hit Chart
   export const readsChartData = [
+
     {
+  
       name: "Classifier 1",
-      hits: ["E. coli", "S. aureus", "Bacteriophage T4"],
-      reads: [500, 300, 200],
+  
+      hits: [1, 2, 3],
+  
+      reads: [10, 20, 30]
+  
     },
+  
     {
+  
       name: "Classifier 2",
-      hits: ["HIV", "Candida albicans", "Arabidopsis thaliana"],
-      reads: [400, 250, 150],
-    },
+  
+      hits: [4, 5, 6],
+  
+      reads: [15, 25, 35]
+  
+    }
+  
   ];
+  
   
   // Data for Taxpasta Table
   export const tableData = [
@@ -80,4 +92,6 @@ export const kronaData = {
       reads: 150,
     },
   ];
+  
+
   
